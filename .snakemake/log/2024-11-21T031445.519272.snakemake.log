@@ -1,0 +1,26 @@
+host: DESKTOP-AKQE49A
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job stats:
+job                  count
+-----------------  -------
+process_text_data        1
+total                    1
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Thu Nov 21 03:14:45 2024]
+localrule process_text_data:
+    input: raw/article_info.tsv
+    output: clean/cleaned_article_info.tsv
+    jobid: 0
+    reason: Forced execution
+    resources: tmpdir=/tmp
+
+[Thu Nov 21 03:15:06 2024]
+Finished job 0.
+1 of 1 steps (100%) done
+Complete log: .snakemake/log/2024-11-21T031445.519272.snakemake.log
