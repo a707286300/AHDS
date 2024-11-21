@@ -1,0 +1,7 @@
+host: DESKTOP-AKQE49A
+Building DAG of jobs...
+MissingInputException in rule process_titles in file /mnt/d/R/AHDS_assessment_code_2600216/Snakefile, line 1:
+Missing input files for rule process_titles:
+    output: clean/clean_titles.tsv
+    affected files:
+        clean/articles.tsv
