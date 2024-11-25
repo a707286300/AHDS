@@ -10,7 +10,7 @@ library(tidytext)
 library(SnowballC)
 
 
-data <- read_tsv("raw/article_info.tsv")
+data <- read_tsv("clean/article_info.tsv")
 
 
 
