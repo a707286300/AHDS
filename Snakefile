@@ -1,6 +1,6 @@
 rule all:
     input:
-        "clean/visualisation.png"
+        "plot/word_frequency_plot.png"
 
 rule step1:
     output:
@@ -33,7 +33,7 @@ rule visualisation:
     input:
         "clean/cleaned_article_info.tsv"
     output:
-        "clean/visualisation.png"
+        "plot/word_frequency_plot.png"
     shell:
         "Rscript scripts/visualisation.R"
 

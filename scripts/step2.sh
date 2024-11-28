@@ -3,21 +3,27 @@ output_file="../clean/article_info.tsv"
 mkdir -p ../clean
 echo -e "PMID\tYear\tTitle" > $output_file
 
-for pmid in $(grep -oP '(?<=<Id>)[0-9]+(?=</Id>)' ../raw/data/pmids.xml); do
-    article_xml=$(curl -s "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=${pmid}&retmode=xml")
-    title=$(echo "$article_xml" | grep -oP '(?<=<ArticleTitle>)[^<]+' | sed 's/<[^>]*>//g')
-    year=$(echo "$article_xml" | grep -oP '(?<=<PubDate><Year>)[0-9]{4}(?=</Year>)')
+# 获取所有 PMID
+pmid_list=$(sed -n 's:.*<Id>\([0-9]\+\)</Id>.*:\1:p' ../raw/data/pmids.xml | tr '\n' ',' | sed 's/,$//')
 
-    echo "Processing PMID: $pmid"
-    echo "Title: $title"
-    echo "Year: $year"
-    
-    if [ -n "$title" ] && [ -n "$year" ]; then
-        echo -e "$pmid\t$year\t$title" >> $output_file
-    else
-        echo "Skipping PMID: $pmid due to missing title or year."
-    fi
-done
+# 批量获取数据
+article_xml=$(curl -s "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=${pmid_list}&retmode=xml")
+
+# 解析并写入数据
+echo "$article_xml" | sed -n '
+  /<PubmedArticle>/,/<\/PubmedArticle>/{
+    s:.*<PMID.*>\([0-9]\+\)</PMID>.*:\1:p
+    s:.*<Year>\([0-9]\+\)</Year>.*:\1:p
+    s:.*<ArticleTitle>\(.*\)</ArticleTitle>.*:\1:p
+    /<\/PubmedArticle>/{
+      x
+      s/\n/\t/g
+      p
+      d
+    }
+    H
+  }' >> $output_file
 
 echo "Processing completed. Results stored in $output_file."
+
 
