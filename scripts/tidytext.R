@@ -10,7 +10,7 @@ library(tidytext)
 library(SnowballC)
 
 
-data <- read_tsv("D:/R/AHDS_assessment_code_2600216/clean/article_info.tsv")
+data <- read_tsv("clean/article_info.tsv")
 
 
 
@@ -35,5 +35,5 @@ final_titles <- cleaned_titles %>%
 
 head(final_titles)
  
-write_tsv(final_titles, data <- read_tsv("D:/R/AHDS_assessment_code_2600216/clean/cleaned_article_info.tsv"))
+write_tsv(final_titles, "clean/cleaned_article_info.tsv")
 

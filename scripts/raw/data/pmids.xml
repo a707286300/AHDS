@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
-<eSearchResult><Count>6535</Count><RetMax>5</RetMax><RetStart>0</RetStart><IdList>
-<Id>39607208</Id>
-<Id>39606594</Id>
-<Id>39604990</Id>
-<Id>39604988</Id>
-<Id>39604720</Id>
-</IdList><TranslationSet/><QueryTranslation>"long covid"[All Fields]</QueryTranslation></eSearchResult>

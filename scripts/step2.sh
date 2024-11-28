@@ -3,7 +3,7 @@ output_file="../clean/article_info.tsv"
 mkdir -p ../clean
 echo -e "PMID\tYear\tTitle" > $output_file
 
-for pmid in $(grep -oP '(?<=<Id>)[0-9]+(?=</Id>)' raw/data/pmids.xml); do
+for pmid in $(grep -oP '(?<=<Id>)[0-9]+(?=</Id>)' ../raw/data/pmids.xml); do
     article_xml=$(curl -s "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=${pmid}&retmode=xml")
     title=$(echo "$article_xml" | grep -oP '(?<=<ArticleTitle>)[^<]+' | sed 's/<[^>]*>//g')
     year=$(echo "$article_xml" | grep -oP '(?<=<PubDate><Year>)[0-9]{4}(?=</Year>)')

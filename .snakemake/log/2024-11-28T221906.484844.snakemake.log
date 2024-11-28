@@ -1,0 +1,29 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job         count    min threads    max threads
+--------  -------  -------------  -------------
+tidytext        1              1              1
+total           1              1              1
+
+Select jobs to execute...
+
+[Thu Nov 28 22:19:07 2024]
+rule tidytext:
+    input: clean/article_info.tsv
+    output: clean/cleaned_article_info.tsv
+    jobid: 0
+    resources: tmpdir=/tmp
+
+Rscript scripts/tidytext.R
+Waiting at most 30 seconds for missing files.
+MissingOutputException in line 23 of /mnt/d/R/AHDS_assessment_code_2600216/Snakefile:
+Job Missing files after 30 seconds:
+clean/cleaned_article_info.tsv
+This might be due to filesystem latency. If that is the case, consider to increase the wait time with --latency-wait.
+Job id: 0 completed successfully, but some output files are missing. 0
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /mnt/d/R/AHDS_assessment_code_2600216/.snakemake/log/2024-11-28T221906.484844.snakemake.log

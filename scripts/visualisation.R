@@ -3,7 +3,7 @@ library(tidyverse)
 library(tidytext)
 
 
-data <- read_tsv("D:/R/AHDS_assessment_code_2600216/clean/cleaned_article_info.tsv")
+data <- read_tsv("clean/cleaned_article_info.tsv")
 
 
 word_freq <- data %>%
@@ -21,7 +21,7 @@ ggplot(word_freq, aes(x = Year, y = n, fill = word)) +
        y = "Frequency",
        fill = "Word")
 
-output_path <- "D:/R/AHDS_assessment_code_2600216/plot/word_frequency_plot.png"
+output_path <- "plot/word_frequency_plot.png"
 
 # ggsave 
 ggsave(output_path, 

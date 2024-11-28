@@ -1,0 +1,33 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job         count    min threads    max threads
+--------  -------  -------------  -------------
+tidytext        1              1              1
+total           1              1              1
+
+Select jobs to execute...
+
+[Thu Nov 28 19:26:24 2024]
+rule tidytext:
+    input: clean/article_info.tsv
+    output: clean/cleaned_data.tsv
+    jobid: 0
+    resources: tmpdir=/tmp
+
+Rscript --vanilla /mnt/d/R/AHDS_assessment_code_2600216/.snakemake/scripts/tmp3o58977x.tidytext.R
+[Thu Nov 28 19:26:46 2024]
+Error in rule tidytext:
+    jobid: 0
+    output: clean/cleaned_data.tsv
+
+RuleException:
+CalledProcessError in line 29 of /mnt/d/R/AHDS_assessment_code_2600216/Snakefile:
+Command 'set -euo pipefail;  Rscript --vanilla /mnt/d/R/AHDS_assessment_code_2600216/.snakemake/scripts/tmp3o58977x.tidytext.R' returned non-zero exit status 1.
+  File "/mnt/d/R/AHDS_assessment_code_2600216/Snakefile", line 29, in __rule_tidytext
+  File "/usr/lib/python3.10/concurrent/futures/thread.py", line 58, in run
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /mnt/d/R/AHDS_assessment_code_2600216/.snakemake/log/2024-11-28T192623.289421.snakemake.log
