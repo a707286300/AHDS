@@ -1,12 +1,35 @@
-name: my_r_project
+name: ahdsenv
 channels:
   - conda-forge
   - defaults
 dependencies:
-  - r-base=4.2.2
+  - r-base=4.4.2
   - r-tidyverse
-  - r-tidytext
-  - r-snowballc
   - r-ggplot2
   - r-readr
   - r-dplyr
+  - r-tidyr
+  - r-stringr
+  - r-tibble
+  - r-scales
+  - r-withr
+  - r-cli
+  - r-purrr
+  - r-glue
+  - libblas=3.9.0
+  - libcblas=3.9.0
+  - liblapack=3.9.0
+  - libgfortran5
+  - libpng
+  - libjpeg-turbo
+  - libzlib
+  - libxml2
+  - libcurl
+  - openssl
+  - xz
+  - cairo
+  - fontconfig
+  - bash
+  - curl
+  - sed
+  - snakemake
