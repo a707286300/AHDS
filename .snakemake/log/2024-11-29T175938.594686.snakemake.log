@@ -1,0 +1,31 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job              count    min threads    max threads
+-------------  -------  -------------  -------------
+visualisation        1              1              1
+total                1              1              1
+
+Select jobs to execute...
+
+[Fri Nov 29 17:59:39 2024]
+rule visualisation:
+    input: clean/cleaned_article_info.tsv
+    output: plot/word_frequency_plot.png
+    jobid: 0
+    resources: tmpdir=/tmp
+
+Rscript scripts/visualisation.R
+[Fri Nov 29 17:59:42 2024]
+Error in rule visualisation:
+    jobid: 0
+    output: plot/word_frequency_plot.png
+    shell:
+        Rscript scripts/visualisation.R
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /mnt/d/r/AHDS_assessment_code_2600216/.snakemake/log/2024-11-29T175938.594686.snakemake.log

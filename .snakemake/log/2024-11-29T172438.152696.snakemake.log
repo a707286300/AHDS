@@ -1,0 +1,35 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job              count    min threads    max threads
+-------------  -------  -------------  -------------
+all                  1              1              1
+visualisation        1              1              1
+total                2              1              1
+
+Select jobs to execute...
+
+[Fri Nov 29 17:24:39 2024]
+rule visualisation:
+    input: clean/cleaned_article_info.tsv
+    output: plot/word_frequency_plot.png
+    jobid: 1
+    resources: tmpdir=/tmp
+
+[Fri Nov 29 17:24:42 2024]
+Finished job 1.
+1 of 2 steps (50%) done
+Select jobs to execute...
+
+[Fri Nov 29 17:24:42 2024]
+localrule all:
+    input: plot/word_frequency_plot.png
+    jobid: 0
+    resources: tmpdir=/tmp
+
+[Fri Nov 29 17:24:42 2024]
+Finished job 0.
+2 of 2 steps (100%) done
+Complete log: /mnt/d/r/AHDS_assessment_code_2600216/.snakemake/log/2024-11-29T172438.152696.snakemake.log
