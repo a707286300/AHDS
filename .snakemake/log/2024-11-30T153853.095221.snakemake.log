@@ -1,0 +1,84 @@
+host: DESKTOP-AKQE49A
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job              count
+-------------  -------
+all                  1
+step1                1
+step2                1
+tidytext             1
+visualisation        1
+total                5
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Sat Nov 30 15:38:53 2024]
+localrule step1:
+    output: raw/data/pmids.xml
+    jobid: 4
+    reason: Missing output files: raw/data/pmids.xml
+    resources: tmpdir=/tmp
+
+[Sat Nov 30 15:39:09 2024]
+Finished job 4.
+1 of 5 steps (20%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Sat Nov 30 15:39:09 2024]
+localrule step2:
+    input: raw/data/pmids.xml
+    output: clean/article_info.tsv
+    jobid: 3
+    reason: Missing output files: clean/article_info.tsv; Input files updated by another job: raw/data/pmids.xml
+    resources: tmpdir=/tmp
+
+[Sat Nov 30 15:39:14 2024]
+Finished job 3.
+2 of 5 steps (40%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Sat Nov 30 15:39:14 2024]
+localrule tidytext:
+    input: clean/article_info.tsv
+    output: clean/cleaned_article_info.tsv
+    jobid: 2
+    reason: Missing output files: clean/cleaned_article_info.tsv; Input files updated by another job: clean/article_info.tsv
+    resources: tmpdir=/tmp
+
+[Sat Nov 30 15:40:20 2024]
+Finished job 2.
+3 of 5 steps (60%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Sat Nov 30 15:40:20 2024]
+localrule visualisation:
+    input: clean/cleaned_article_info.tsv
+    output: plot/word_frequency_plot.png
+    jobid: 1
+    reason: Missing output files: plot/word_frequency_plot.png; Input files updated by another job: clean/cleaned_article_info.tsv
+    resources: tmpdir=/tmp
+
+[Sat Nov 30 15:40:24 2024]
+Finished job 1.
+4 of 5 steps (80%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Sat Nov 30 15:40:24 2024]
+localrule all:
+    input: plot/word_frequency_plot.png
+    jobid: 0
+    reason: Input files updated by another job: plot/word_frequency_plot.png
+    resources: tmpdir=/tmp
+
+[Sat Nov 30 15:40:24 2024]
+Finished job 0.
+5 of 5 steps (100%) done
+Complete log: .snakemake/log/2024-11-30T153853.095221.snakemake.log
