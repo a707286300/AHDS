@@ -44,20 +44,25 @@ snakemake clean/visualisation.png --cores 1 -p
 
 raw/data
 Contains raw input data files retrieved from PubMed. These include:
-pmids.xml: 
+pmids.xml
+
 clean/
 Contains processed data files generated during the pipeline execution. These include:
-article_info.tsv: 
+article_info.tsv
+
 plot/
 Contains visual outputs generated from the analysis. These include:
-word_frequency_plot.png: 
+word_frequency_plot.png
+
 Sripts/
 Contains Bash and R scripts used in the analysis. These include:
 step1.sh: Bash script to retrieve PubMed IDs and article metadata.
 step2.sh: Bash script or R script to process raw XML files and extract relevant data.
 visualisation.R: R script to generate plots based on the processed data.
+
 Snakefile
 The Snakemake workflow file, defining the pipeline steps, input/output dependencies, and scripts to be executed.
+
 ahds_environment.yml
 Conda environment configuration file, specifying the packages required to run the pipeline.
 
