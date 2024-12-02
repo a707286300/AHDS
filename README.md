@@ -35,7 +35,10 @@ snakemake
 
 If you want to do a commit run in BlueCrystal, run run.sh.
 sbatch run.sh
+
 Before running, check the config file to make sure the request data is correct.
+
+
 In addition, single components can be run as follows:
 snakemake raw/data/pmids.xml --cores 1 -p
 snakemake clean/article_info.tsv --cores 1 -p
